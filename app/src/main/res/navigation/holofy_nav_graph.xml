@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/holofy_nav_graph"
+    app:startDestination="@id/videosListFragment">
+
+    <fragment
+        android:id="@+id/videosListFragment"
+        android:name="com.example.holofytask.ui.VideosListFragment"
+        android:label="fragment_videos_list"
+        tools:layout="@layout/fragment_videos_list" >
+        <action
+            android:id="@+id/action_videosListFragment_to_videoViewerFragment"
+            app:destination="@id/videoViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoViewerFragment"
+        android:name="com.example.holofytask.ui.VideoViewerFragment"
+        android:label="fragment_video_viewer"
+        tools:layout="@layout/fragment_video_viewer" >
+        <action
+            android:id="@+id/action_videoViewerFragment_to_videosListFragment"
+            app:destination="@id/videosListFragment" />
+        <argument
+            android:name="windowIndex"
+            app:argType="integer" />
+        <argument
+            android:name="playbackPos"
+            app:argType="long" />
+        <argument
+            android:name="position"
+            app:argType="integer" />
+        <argument
+            android:name="videoItem"
+            app:argType="com.example.holofytask.data.models.VideoModel" />
+
+
+    </fragment>
+</navigation>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:transitionName="@string/video_viewer_transition_name"
+    app:cardCornerRadius="15dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.VideoViewerFragment">
+
+        <FrameLayout
+            android:id="@+id/fl_player_view"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/player_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:resize_mode="fill"
+                app:rewind_increment="10000"
+                app:fastforward_increment="10000"
+                app:auto_show="true"
+                app:use_controller="true"
+                app:controller_layout_id="@layout/layout_control_exoplayer_views"
+                app:surface_type="texture_view" />
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="end|top"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_close_icon_gray" />
+
+
+            <ImageView
+                android:id="@+id/volume_control"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="end|bottom"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:animateLayoutChanges="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_volume_up_grey_24dp" />
+
+
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:letterSpacing="0.1"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fl_player_view" />
+
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:letterSpacing="0.1"
+            android:textColor="#A9A9A9"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:letterSpacing="0.1"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_subtitle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
+
